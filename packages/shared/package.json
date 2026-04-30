@@ -1,0 +1,23 @@
+{
+  "name": "@mexlex/shared",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./domain/*": "./src/domain/*.ts",
+    "./types/*": "./src/types/*.ts",
+    "./taxonomy/*": "./src/taxonomy/*.ts",
+    "./constants/*": "./src/constants/*.ts",
+    "./schemas/*": "./src/schemas/*.ts",
+    "./prompts/*": "./src/prompts/*.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "node -e \"console.log('No tests configured yet')\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
+

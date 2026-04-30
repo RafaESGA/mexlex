@@ -1,0 +1,3 @@
+export const DEFAULT_SEARCH_LIMIT = 10;
+export const DEFAULT_EMBEDDING_DIMENSION = 1536;
+

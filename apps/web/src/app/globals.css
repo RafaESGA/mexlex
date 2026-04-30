@@ -1,0 +1,390 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f4efe6;
+  --panel: rgba(255, 252, 247, 0.88);
+  --ink: #221b17;
+  --muted: #6a5c53;
+  --accent: #9d3c23;
+  --accent-soft: #d98d68;
+  --line: rgba(34, 27, 23, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at top left, rgba(217, 141, 104, 0.22), transparent 24rem),
+    linear-gradient(180deg, #f7f1e8 0%, #efe4d2 100%);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  min-height: 100vh;
+  padding: 32px 20px 48px;
+}
+
+.page-frame {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+}
+
+.hero,
+.panel {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(44, 22, 10, 0.08);
+}
+
+.hero {
+  padding: 32px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 0.94;
+}
+
+.hero p,
+.muted {
+  color: var(--muted);
+}
+
+.hero-grid,
+.content-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.content-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.panel {
+  padding: 24px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.search-card {
+  display: grid;
+  gap: 12px;
+}
+
+.filter-form {
+  display: grid;
+  gap: 12px;
+}
+
+.filter-grid,
+.metric-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #fffdf9;
+  color: var(--ink);
+  font: inherit;
+}
+
+.primary-button {
+  border: 0;
+  border-radius: 16px;
+  background: var(--ink);
+  color: #fffaf0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 14px 18px;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.primary-button:hover,
+.result-card:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.chat-panel {
+  display: grid;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.starter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.starter-chip {
+  border: 1px solid rgba(157, 60, 35, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.82);
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+  padding: 9px 13px;
+}
+
+.chat-thread {
+  display: grid;
+  gap: 12px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding: 6px;
+}
+
+.chat-message {
+  display: flex;
+}
+
+.chat-message.user {
+  justify-content: flex-end;
+}
+
+.chat-bubble {
+  max-width: min(720px, 92%);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 253, 249, 0.84);
+  padding: 14px 16px;
+}
+
+.chat-message.user .chat-bubble {
+  background: var(--ink);
+  color: #fffaf0;
+}
+
+.chat-bubble p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.chat-bubble span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.chat-message.user .chat-bubble span {
+  color: rgba(255, 250, 240, 0.72);
+}
+
+.chat-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.chat-form textarea {
+  min-height: 72px;
+  resize: vertical;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #fffdf9;
+  color: var(--ink);
+  font: inherit;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(157, 60, 35, 0.18);
+  background: rgba(157, 60, 35, 0.06);
+  color: var(--accent);
+  font-size: 0.92rem;
+}
+
+.result-list,
+.scorecard {
+  display: grid;
+  gap: 12px;
+}
+
+.result-card {
+  width: 100%;
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid rgba(34, 27, 23, 0.08);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 252, 247, 0.98), rgba(244, 231, 212, 0.72)),
+    #fffdf9;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.result-card.is-selected {
+  border-color: rgba(157, 60, 35, 0.45);
+  box-shadow: 0 14px 36px rgba(157, 60, 35, 0.12);
+}
+
+.result-title {
+  font-weight: 700;
+  line-height: 1.24;
+}
+
+.result-count {
+  margin: 4px 0;
+}
+
+.notice {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(34, 27, 23, 0.06);
+  color: var(--muted);
+}
+
+.notice.warning {
+  background: rgba(157, 60, 35, 0.09);
+  color: var(--accent);
+}
+
+.timeline {
+  display: grid;
+  gap: 14px;
+}
+
+.timeline-item {
+  padding-left: 16px;
+  border-left: 2px solid rgba(157, 60, 35, 0.3);
+}
+
+.timeline-item p {
+  margin: 6px 0;
+}
+
+.scorecard-status {
+  width: fit-content;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.status-pass {
+  background: rgba(56, 122, 82, 0.12);
+  color: #2f6c47;
+}
+
+.status-warn {
+  background: rgba(157, 60, 35, 0.11);
+  color: var(--accent);
+}
+
+.status-fail {
+  background: rgba(130, 28, 28, 0.12);
+  color: #821c1c;
+}
+
+.metric {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 253, 249, 0.72);
+}
+
+.metric strong {
+  font-size: 1.35rem;
+}
+
+.metric span {
+  color: var(--muted);
+}
+
+@layer components {
+  .page-shell {
+    @apply min-h-screen px-5 pb-12 pt-8;
+  }
+
+  .page-frame {
+    @apply mx-auto grid max-w-6xl gap-6;
+  }
+
+  .hero,
+  .panel {
+    @apply rounded-[24px] border border-[rgba(34,27,23,0.1)] bg-[rgba(255,252,247,0.88)] shadow-panel;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    padding: 20px 14px 32px;
+  }
+
+  .hero,
+  .panel {
+    border-radius: 18px;
+    padding: 20px;
+  }
+
+  .filter-grid,
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-form {
+    grid-template-columns: 1fr;
+  }
+}

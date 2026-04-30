@@ -1,0 +1,14 @@
+node_modules
+.next
+.env
+.env.*
+!.env.example
+dist
+out
+coverage
+.DS_Store
+pnpm-debug.log*
+
+*.tsbuildinfo
+apps/api/*report*.json
+apps/api/reconciliation-*.json

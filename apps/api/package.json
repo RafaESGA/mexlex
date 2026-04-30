@@ -1,0 +1,41 @@
+{
+  "name": "@mexlex/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "diputados:backfill-derived": "node --import tsx src/workers/backfill-diputados-derived-data.ts",
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/app/server.ts",
+    "diputados:ingest": "node --import tsx src/workers/run-diputados-gaceta-ingestion.ts",
+    "reconciliation:fix-primary-sources": "node --import tsx src/workers/fix-primary-source-links.ts",
+    "senado:backfill-commissions": "node --import tsx src/workers/backfill-senado-commissions.ts",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "senado:transparencia:repair-authors": "node --import tsx src/workers/repair-senado-transparencia-authors.ts",
+    "senado:cleanup-authors": "node --import tsx src/workers/cleanup-senado-author-artifacts.ts",
+    "senado:ingest": "node --import tsx src/workers/run-senado-gaceta-ingestion.ts",
+    "senado:ingest-local": "node --import tsx src/workers/run-senado-gaceta-local-ingestion.ts",
+    "senado:datos-abiertos:ingest-local": "node --import tsx src/workers/run-senado-datos-abiertos-local-ingestion.ts",
+    "reconciliation:audit": "node --import tsx src/workers/run-reconciliation-quality-audit.ts",
+    "reconciliation:scorecard": "node --import tsx src/workers/run-reconciliation-scorecard.ts",
+    "reconciliation:author-variants": "node --import tsx src/workers/run-author-variant-report.ts",
+    "reconciliation:merge-author-variants": "node --import tsx src/workers/merge-author-variants.ts",
+    "reconciliation:duplicate-report": "node --import tsx src/workers/run-duplicate-initiative-report.ts",
+    "reconciliation:merge-duplicates": "node --import tsx src/workers/merge-duplicate-initiatives.ts",
+    "reconciliation:backfill-status-from-events": "node --import tsx src/workers/backfill-initiative-status-from-events.ts",
+    "senado:transparencia:ingest": "node --use-system-ca --import tsx src/workers/run-senado-transparencia-ingestion.ts",
+    "sil:ingest": "node --use-system-ca --import tsx src/workers/run-sil-ingestion.ts",
+    "test": "node --test dist/tests/**/*.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@mexlex/shared": "workspace:*",
+    "@supabase/supabase-js": "^2.49.1",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
